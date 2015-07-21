@@ -1,0 +1,14 @@
+#!/bin/sh
+
+for d in bundle/*
+do
+	if [ -e "$d/.git" ]
+	then
+		# Unstage the gitlink, so we can then add it back as a submodule.
+		git rm --cached "$d"
+		# Guess that the URL for origin is a reasonable one to use.
+		URL="$(cd "$d" && git config remote.origin.url)"
+        # Add the git repository back as a submodule.
+        git submodule add "$URL" "$d"
+	fi
+done
