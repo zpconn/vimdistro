@@ -13,12 +13,9 @@ end
 
 execute pathogen#infect()
 
+let mapleader="\<Space>"
 set background=dark
 colorscheme solarized
-
-"let g:neocomplcache_enable_at_startup = 1
-"let g:neocomplcache_enable_smart_case = 1
-"let g:neocomplcache_min_syntax_length = 3
 
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
@@ -27,23 +24,10 @@ nnoremap <Leader>m :TagbarToggle<CR>
 
 " Highlight searches.
 set hlsearch
-nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+nnoremap <silent> <CR> :nohlsearch<Bar>:echo<CR>
 
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-	return neocomplcache#smart_close_popup() . "\<CR>"
-endfunction
-
-" <C-h>: close popup
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+" Go to first non-space character.
+nnoremap <leader>0 ^
 
 " Enable persistent undo.
 if has("persistent_undo")
@@ -58,29 +42,17 @@ nnoremap <C-k> :m .-2<CR>
 " Highlight the current line.
 set cursorline
 
-" Smooth scrolling.
-"noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 10, 2)<CR>
-"noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 10, 2)<CR>
-"noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 10, 4)<CR>
-"noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 10, 4)<CR>
-
-" Sexy scrolling.
-"let g:SexyScroller_ScrollTime = 10
-"let g:SexyScroller_CursorTime = 5
-"let g:SexyScroller_MaxTime = 500
-"let g:SexyScroller_EasingStyle = 2
-
 " Disable arrows in NERDTree
 let g:NERDTreeDirArrows=0
 
-let mapleader="\<Space>"
+map <Leader>pt :NERDTreeToggle<CR>
 
-map <Leader>n :NERDTreeToggle<CR>
-
-nnoremap <Leader><C-n> :UndotreeToggle<CR>
+nnoremap <Leader>ut :UndotreeToggle<CR>
 
 inoremap jj <Esc>
 inoremap fd <Esc>
+nnoremap fd <Esc>
+vnoremap fd <Esc>
 
 nnoremap JJJJ <Nop>
 
@@ -102,7 +74,6 @@ endif
 
 set autoindent
 set copyindent
-
 set autoread
 
 if version >= 700
@@ -122,20 +93,6 @@ au BufNewFile,BufRead *.rvt set filetype=tcl
 au BufNewFile,BufRead *.rcl set filetype=tcl
 
 set laststatus=2
-
-" Always enable rainbow parentheses
-"au VimEnter * RainbowParenthesesToggle
-"au Syntax * RainbowParenthesesLoadRound
-"au Syntax * RainbowParenthesesLoadSquare
-"au Syntax * RainbowParenthesesLoadBraces
-
-" Enable fuzzy line searching with Ctrlp
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlPLastMode'
-let g:ctrlp_extensions = ['line', 'tag']
-
-"autocmd BufWritePost * execute ':SemanticHighlight'
-"autocmd BufReadPost * execute ':SemanticHighlight'
 
 " Swoop:
 
@@ -177,8 +134,6 @@ nnoremap <leader>gl :Unite -auto-preview -no-split grep:.<CR>
 nnoremap <leader>glp :Unite -auto-preview -no-split grep:.<CR>proc<Space>
 nnoremap <leader>gg :Unite -auto-preview -no-split grep:!<CR>
 nnoremap <leader>ggp :Unite -auto-preview -no-split grep:!<CR>proc<Space>
-
-nnoremap <leader>0 ^
 
 let g:unite_source_history_yank_enable = 1
 
