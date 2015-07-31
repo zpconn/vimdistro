@@ -16,9 +16,9 @@ execute pathogen#infect()
 set background=dark
 colorscheme solarized
 
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_min_syntax_length = 3
+"let g:neocomplcache_enable_at_startup = 1
+"let g:neocomplcache_enable_smart_case = 1
+"let g:neocomplcache_min_syntax_length = 3
 
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
@@ -73,11 +73,14 @@ set cursorline
 " Disable arrows in NERDTree
 let g:NERDTreeDirArrows=0
 
+let mapleader="\<Space>"
+
 map <Leader>n :NERDTreeToggle<CR>
 
 nnoremap <Leader><C-n> :UndotreeToggle<CR>
 
 inoremap jj <Esc>
+inoremap fd <Esc>
 
 nnoremap JJJJ <Nop>
 
@@ -121,18 +124,20 @@ au BufNewFile,BufRead *.rcl set filetype=tcl
 set laststatus=2
 
 " Always enable rainbow parentheses
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+"au VimEnter * RainbowParenthesesToggle
+"au Syntax * RainbowParenthesesLoadRound
+"au Syntax * RainbowParenthesesLoadSquare
+"au Syntax * RainbowParenthesesLoadBraces
 
 " Enable fuzzy line searching with Ctrlp
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlPLastMode'
 let g:ctrlp_extensions = ['line', 'tag']
 
-autocmd BufWritePost * execute ':SemanticHighlight'
-autocmd BufReadPost * execute ':SemanticHighlight'
+"autocmd BufWritePost * execute ':SemanticHighlight'
+"autocmd BufReadPost * execute ':SemanticHighlight'
+
+" Swoop:
 
 function! Multiple_cursors_before()
     if exists('*SwoopFreezeContext') != 0
@@ -145,4 +150,35 @@ function! Multiple_cursors_after()
     	call SwoopUnFreezeContext()
     endif
 endfunction
+
+let g:swoopUseDefaultKeyMap = 0
+
+nmap <leader>/ :call Swoop()<CR>
+vmap <leader>/ :call SwoopSelection()<CR>
+
+nmap <leader>m/ :call SwoopMulti()<CR>
+vmap <leader>m/ :call SwoopMultiSelection()<CR>
+
+" Unite:
+
+nnoremap <leader>flt :Unite -start-insert file_rec/async -default-action=tabopen<CR>
+nnoremap <leader>flh :Unite -start-insert file_rec/async -default-action=split<CR>
+nnoremap <leader>flv :Unite -start-insert file_rec/async -default-action=vsplit<CR>
+nnoremap <leader>flf :Unite -start-insert file_rec/async<CR>
+
+nnoremap <leader>fgt :Unite -start-insert file_rec/async:! -default-action=tabopen<CR>
+nnoremap <leader>fgh :Unite -start-insert file_rec/async:! -default-action=split<CR>
+nnoremap <leader>fgv :Unite -start-insert file_rec/async:! -default-action=vsplit<CR>
+nnoremap <leader>fgf :Unite -start-insert file_rec/async:!<CR>
+
+nnoremap <leader>bb :Unite -quick-match buffer<CR>
+
+nnoremap <leader>gl :Unite -auto-preview -no-split grep:.<CR>
+nnoremap <leader>glp :Unite -auto-preview -no-split grep:.<CR>proc<Space>
+nnoremap <leader>gg :Unite -auto-preview -no-split grep:!<CR>
+nnoremap <leader>ggp :Unite -auto-preview -no-split grep:!<CR>proc<Space>
+
+nnoremap <leader>0 ^
+
+let g:unite_source_history_yank_enable = 1
 
