@@ -67,3 +67,9 @@
 [submodule "bundle/vimproc"]
 	path = bundle/vimproc
 	url = https://github.com/Shougo/vimproc.vim.git
+[submodule "bundle/neomru"]
+	path = bundle/neomru
+	url = git@github.com:Shougo/neomru.vim.git
+[submodule "bundle/supertab"]
+	path = bundle/supertab
+	url = git@github.com:ervandew/supertab.git
