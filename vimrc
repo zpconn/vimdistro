@@ -97,6 +97,9 @@ set laststatus=2
 " find-vimrc
 nnoremap <leader>fv :e ~/.vim/vimrc<CR>
 
+" find-todo
+nnoremap <leader>ftd :e ~/.todo<CR>
+
 " WINDOW MANAGEMENT:
 
 nnoremap <leader>wh <C-w>h
@@ -201,3 +204,17 @@ let g:unite_source_rec_max_cache_files = 99999
 
 ":autocmd BufWinEnter * setlocal modifiable
 
+" STARTIFY:
+
+let g:startify_bookmarks = [ '~/.vim/vimrc', '~/.todo' ]
+let g:startify_custom_header = [ 
+            \ '                                 ________  __ __        ',
+            \ '            __                  /\_____  \/\ \\ \       ',
+            \ '    __  __ /\_\    ___ ___      \/___//''/''\ \ \\ \    ',  
+            \ '   /\ \/\ \\/\ \ /'' __` __`\        /'' /''  \ \ \\ \_ ',
+            \ '   \ \ \_/ |\ \ \/\ \/\ \/\ \      /'' /''__  \ \__ ,__\',
+            \ '    \ \___/  \ \_\ \_\ \_\ \_\    /\_/ /\_\  \/_/\_\_/  ',  
+            \ '     \/__/    \/_/\/_/\/_/\/_/    \//  \/_/     \/_/    ',  
+            \ '', 
+            \ '', 
+            \ ]
