@@ -82,3 +82,6 @@
 [submodule "bundle/vim-misc"]
 	path = bundle/vim-misc
 	url = git@github.com:xolox/vim-misc.git
+[submodule "bundle/vim-sneak"]
+	path = bundle/vim-sneak
+	url = git@github.com:justinmk/vim-sneak.git
