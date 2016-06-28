@@ -6,6 +6,7 @@ set number
 set ignorecase
 set smartcase
 set t_Co=256
+set expandtab
 
 if match(getcwd(), "/feedstream_server") >= 0
 	set tabstop=8
@@ -197,9 +198,9 @@ nnoremap <leader>ghp :Unite -auto-preview -no-split grep:/usr/home/zachery.conn/
 nnoremap <silent> <leader>ghw :UniteWithCursorWord -auto-preview -no-split grep:/usr/home/zachery.conn/src/<CR>proc<Space>
 
 let g:unite_source_history_yank_enable = 1
-let g:unite_source_grep_command = 'ack'
-let g:unite_source_grep_default_opts = '-i --no-heading --no-color -k -H'
-let g:unite_source_grep_recursive_opt = ''
+"let g:unite_source_grep_command = 'ack'
+"let g:unite_source_grep_default_opts = '-i --no-heading --no-color -k -H'
+"let g:unite_source_grep_recursive_opt = ''
 let g:unite_source_rec_max_cache_files = 99999
 
 ":autocmd BufWinEnter * setlocal modifiable
@@ -237,22 +238,3 @@ let g:startify_custom_header = [
     \ '',
     \ ]
 
-"let g:startify_custom_header = [
-	"\ '___________.__  .__       .__     __     _____                                ',
-    "\ '\_   _____/|  | |__| ____ |  |___/  |_  /  _  \__  _  _______ _______   ____  ',
-    "\ ' |    __)  |  | |  |/ ___\|  |  \   __\/  /_\  \ \/ \/ /\__  \\_  __ \_/ __ \ ',
-    "\ ' |     \   |  |_|  / /_/  >   Y  \  | /    |    \     /  / __ \|  | \/\  ___/ ',
-    "\ ' \___  /   |____/__\___  /|___|  /__| \____|__  /\/\_/  (____  /__|    \___  >',
-    "\ '     \/           /_____/      \/             \/             \/            \/ ',
-    "\ '',
-    "\ '',
-	"\ '                                            ________  __ __        ',
-	"\ '                       __                  /\_____  \/\ \\ \       ',
-	"\ '               __  __ /\_\    ___ ___      \/___//''/''\ \ \\ \    ',  
-	"\ '              /\ \/\ \\/\ \ /'' __` __`\        /'' /''  \ \ \\ \_ ',
-	"\ '              \ \ \_/ |\ \ \/\ \/\ \/\ \      /'' /''__  \ \__ ,__\',
-	"\ '               \ \___/  \ \_\ \_\ \_\ \_\    /\_/ /\_\  \/_/\_\_/  ',  
-	"\ '                \/__/    \/_/\/_/\/_/\/_/    \//  \/_/     \/_/    ',  
-	"\ '', 
-	"\ '', 
-	"\ ]
