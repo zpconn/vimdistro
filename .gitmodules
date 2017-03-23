@@ -91,3 +91,9 @@
 [submodule "bundle/elm-vim"]
 	path = bundle/elm-vim
 	url = https://github.com/ElmCast/elm-vim.git
+[submodule "bundle/vim-scala"]
+	path = bundle/vim-scala
+	url = https://github.com/derekwyatt/vim-scala.git
+[submodule "bundle/ensime-vim"]
+	path = bundle/ensime-vim
+	url = https://github.com/ensime/ensime-vim.git

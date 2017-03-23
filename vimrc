@@ -205,6 +205,15 @@ let g:unite_source_rec_max_cache_files = 99999
 
 ":autocmd BufWinEnter * setlocal modifiable
 
+" Scala/Ensime:
+
+nnoremap <leader>st :EnType<CR>
+nnoremap <leader>sc :EnTypeCheck<CR>
+nnoremap <leader>sdec :EnDeclaration<CR>
+nnoremap <leader>sdoc :EnDocBrowse<CR>
+
+autocmd BufWritePost *.scala silent :EnTypeCheck
+
 " STARTIFY:
 
 let g:startify_bookmarks = [ '~/.vim/vimrc', '~/.todo' ]
